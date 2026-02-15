@@ -13,6 +13,10 @@ func LoadTasks(path string) ([]Task, error) {
 	if err != nil {
 		return nil, err
 	}
+	// Handle empty file
+	if len(b) == 0 {
+		return []Task{}, nil
+	}
 	var tasks []Task
 	err = json.Unmarshal(b, &tasks)
 	return tasks, err

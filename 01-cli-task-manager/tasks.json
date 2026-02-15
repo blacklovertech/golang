@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Test task",
+    "completed": false,
+    "priority": 1
+  },
+  {
+    "id": 2,
+    "title": "Buy milk",
+    "completed": false,
+    "priority": 2
+  },
+  {
+    "id": 3,
+    "title": "Buy milk",
+    "completed": false,
+    "priority": 2
+  }
+]

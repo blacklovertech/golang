@@ -3,6 +3,7 @@
 A simple command-line task management application with JSON persistence.
 
 ## Folder Structure
+
 ```
 
 01-cli-task-manager/
@@ -12,16 +13,18 @@ A simple command-line task management application with JSON persistence.
 ├── tasks.json    # Data file (auto-created)
 └── go.mod
 
-````
+```
 
 ## Files Overview
 
 ### main.go
+
 - Parses CLI arguments using `flag`
 - Handles commands: add, list, complete, delete
 - Calls storage functions to load/save tasks
 
 ### task.go
+
 - Defines `Task` struct:
   - `ID` (int)
   - `Title` (string)
@@ -29,35 +32,47 @@ A simple command-line task management application with JSON persistence.
   - `Priority` (int)
 
 ### storage.go
+
 - Reads tasks from `tasks.json`
 - Writes tasks to `tasks.json`
 - Uses `encoding/json` and `os`
 
 ### tasks.json
+
 - Stores tasks persistently in JSON format
 - Created automatically on first run
 
 ## Build & Run
 
 ### Initialize module
+
 ```bash
 go mod init cli-task-manager
-````
+```
 
 ### Build binary
 
 ```bash
-go build -o taskmgr
+# Build for current platform
+go build -o todo
+
+# For Windows specifically
+go build -o todo.exe
 ```
 
 ### Run binary
 
 ```bash
-./taskmgr -add "Buy milk" -priority 2
-./taskmgr -list
-./taskmgr -complete 1
-./taskmgr -status completed
-./taskmgr -delete 1
+# On Linux/Mac
+./todo -add "Buy milk" -priority 2
+./todo -list
+./todo -complete 1
+./todo -status completed
+./todo -delete 1
+
+# On Windows
+todo.exe -add "Buy milk" -priority 2
+todo.exe -list
 ```
 
 ### Run without building
@@ -68,35 +83,34 @@ go run . -add "Test task"
 
 ## CLI Commands
 
-* Add task
+- Add task
   `-add "task name" -priority <number>`
 
-* List tasks
+- List tasks
   `-list`
 
-* Filter tasks
+- Filter tasks
   `-status pending`
   `-status completed`
 
-* Complete task
+- Complete task
   `-complete <task_id>`
 
-* Delete task
+- Delete task
   `-delete <task_id>`
 
 ## Tech Stack
 
-* Go (standard library only)
-* `flag`
-* `encoding/json`
-* `os`
+- Go (standard library only)
+- `flag`
+- `encoding/json`
+- `os`
 
 ## Learning Outcomes
 
-* Go syntax and basic types
-* Structs and methods
-* File I/O
-* JSON marshaling/unmarshaling
-* CLI argument parsing
-* Error handling
-
+- Go syntax and basic types
+- Structs and methods
+- File I/O
+- JSON marshaling/unmarshaling
+- CLI argument parsing
+- Error handling
